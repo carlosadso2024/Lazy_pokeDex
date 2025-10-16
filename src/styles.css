@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-gb-dark: #0F380F;
+  --color-gb-medium: #306230;
+  --color-gb-light: #88C070;
+  --color-gb-lighter: #9BBC0F;
+  
+  --font-display: "Press Start 2P", monospace;
+  
+  --radius: 0;
+}
+
+body {
+  background-color: #0F380F;
+  font-family: "Press Start 2P", monospace;
+}

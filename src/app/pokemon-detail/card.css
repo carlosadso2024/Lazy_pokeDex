@@ -1,0 +1,17 @@
+:host {
+  font-family: "Press Start 2P", monospace;
+}
+
+.card-border {
+  border: 4px solid #306230;
+  box-shadow: inset 0 0 0 2px #88C070;
+}
+
+.pixelated-image {
+  image-rendering: optimizeSpeed;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+}

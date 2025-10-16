@@ -1,0 +1,36 @@
+<div *ngIf="pokemon" class="max-w-sm w-full bg-gb-medium card-border relative overflow-hidden">
+  <div class="p-4">
+    <div class="flex justify-between items-start mb-2">
+      <h1 class="text-lg font-bold text-gb-lighter uppercase">{{ pokemon.name }}</h1>
+        <span class="font-bold text-sm">HP{{ getHp() }}</span>
+    </div>
+    <div class="bg-gb-dark mb-4 border-2 border-gb-lighter">
+      <div class="aspect-square bg-cover bg-center pixelated-image" [style.background-image]="'url(' + getImageUrl() + ')'"></div>
+    </div>
+    <div class="bg-gb-dark border-2 border-gb-lighter p-2 text-center mb-4">
+      <p class="font-normal text-xs text-gb-lighter">
+        NO. {{ pokemon.id.toString().padStart(3, '0') }}<br/>
+        HT: {{ (pokemon.height / 10).toFixed(1) }}M WT: {{ (pokemon.weight / 10).toFixed(1) }}KG
+      </p>
+    </div>
+    <div class="bg-gb-dark border-2 border-gb-lighter p-3 mb-4 text-gb-lighter">
+      <h3 class="font-bold text-sm mb-1 uppercase">Abilities</h3>
+      <p class="text-xs" *ngFor="let ability of getAbilities()">• {{ ability }}</p>
+    </div>
+    <div class="bg-gb-dark border-2 border-gb-lighter p-3 mb-4 text-gb-lighter">
+      <h3 class="font-bold text-sm mb-2 uppercase">Moves</h3>
+      <div class="grid grid-cols-2 gap-2">
+        <div *ngFor="let move of getMoves()" class="text-xs bg-gb-medium p-1 border border-gb-lighter">
+          • {{ move }}
+        </div>
+      </div>
+    </div>
+    <div class="w-full h-10 justify-center content-center flex">
+      <div class="w-10 h-10 bg-gb-dark rounded-full absolute">
+        <div class="w-4 h-4 bg-gb-medium rounded-full relative left-3 top-3"></div>
+        <div class="w-full h-1 bg-gb-medium relative top-0.5"></div>
+        <div class="w-2 h-2 bg-gb-dark rounded-full relative left-4 bottom-1"></div>
+      </div>
+    </div>
+  </div>
+</div>

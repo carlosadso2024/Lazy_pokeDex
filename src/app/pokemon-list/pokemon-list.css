@@ -1,0 +1,72 @@
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
+  }
+  
+  .pagination-container {
+    max-width: 1200px;
+    margin: 40px auto 0 auto;
+    padding: 20px;
+  }
+  
+  .pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  
+  .pagination-button,
+  .pagination-number {
+    padding: 8px 16px;
+    border: 2px solid #9bbc0f;
+    background-color: #0f380f;
+    color: #9bbc0f;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: monospace;
+  }
+  
+  .pagination-button:hover:not(:disabled),
+  .pagination-number:hover {
+    background-color: #306230;
+    transform: scale(1.05);
+  }
+  
+  .pagination-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .pagination-number.active {
+    background-color: #9bbc0f;
+    color: #0f380f;
+  }
+  
+  .pagination-info {
+    text-align: center;
+    color: #9bbc0f;
+    font-family: monospace;
+    font-size: 14px;
+  }
+  
+  @media (max-width: 900px) {
+    .card-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    
+    .pagination-button,
+    .pagination-number {
+      padding: 6px 12px;
+      font-size: 14px;
+    }
+  }
+  
