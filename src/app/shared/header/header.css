@@ -1,0 +1,59 @@
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: #0f380f; /* game boy dark */
+  color: #9bbc0f; /* game boy lighter */
+  border-bottom: 4px solid #9bbc0f;
+}
+
+.app-title {
+  color: #9bbc0f;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  cursor: pointer;
+  color: #9bbc0f;
+  margin-right: 16px;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+}
+
+.nav-link:hover {
+  border-color: #9bbc0f;
+}
+
+.btn {
+  padding: 8px 16px;
+  border: 2px solid #9bbc0f;
+  background-color: #0f380f;
+  color: #9bbc0f;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: monospace;
+}
+
+.btn:hover {
+  background-color: #306230;
+  transform: scale(1.05);
+}
+
+.btn-danger {
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+.btn-danger:hover {
+  background-color: #dc3545;
+  color: #0f380f;
+}
+
+

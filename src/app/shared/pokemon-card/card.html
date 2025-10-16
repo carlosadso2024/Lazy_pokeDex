@@ -26,11 +26,12 @@
       </div>
     </div>
     <div class="w-full h-10 justify-center content-center flex">
-      <div class="w-10 h-10 bg-gb-dark rounded-full absolute">
+      <button (click)="onAddToPokedex($event)" [disabled]="isInPokedex"
+      [title]="isInPokedex ? 'Ya capturado' : 'Capturar Pokémon'"class="w-10 h-10 bg-gb-dark rounded-full absolute cursor-pointer">
         <div class="w-4 h-4 bg-gb-medium rounded-full relative left-3 top-3"></div>
-        <div class="w-full h-1 bg-gb-medium relative top-0.5"></div>
-        <div class="w-2 h-2 bg-gb-dark rounded-full relative left-4 bottom-1"></div>
-      </div>
+          <div class="w-full h-1 bg-gb-medium relative top-0.5"></div>
+          <div class="w-2 h-2 bg-gb-dark rounded-full relative left-4 bottom-1"></div>
+        </button>
     </div>
   </div>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PokeService } from '../pokeList-service';
-import { Pokemon } from '../pokemon.interface';
+import { PokeService } from '../../../../core/services/pokeList-service';
+import { Pokemon } from './pokemon.interface';
+import { PokedexService } from '../../../../core/services/pokedex-service';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -14,11 +15,17 @@ export class PokemonList implements OnInit {
   pageSize: number = 12;
   totalPages: number = 13; // 151 / 12 ≈ 13 páginas
   isLoading: boolean = false;
+  pokedexCount: number = 0;
 
-  constructor(private pokeService: PokeService) {}
+  constructor(private pokeService: PokeService, private pokedexService: PokedexService) {}
 
   ngOnInit(): void {
     this.loadPokemons();
+    this.updatePokedexCount();
+
+    this.pokedexService.myPokedex$.subscribe(pokedex => {
+      this.updatePokedexCount();
+    });
   }
 
   loadPokemons(): void {
@@ -35,6 +42,27 @@ export class PokemonList implements OnInit {
     });
   }
 
+  //Agregar pokemon a la Pokédex
+  addToPokedex(pokemon: Pokemon): void {
+  
+    const added = this.pokedexService.addPokemon(pokemon);
+
+    if (added) {
+      alert('Pokemon agregado a la Pokédex');
+  }
+}
+
+//verificar si el pokemon ya esta en la Pokédex
+isPokemonInPokedex(pokemonId: number): boolean {
+  return this.pokedexService.isPokemonInPokedex(pokemonId);
+}
+
+//actualizar el contador de la Pokédex
+updatePokedexCount(): void {
+  this.pokedexCount = this.pokedexService.getPokedexCount();
+}
+
+//cambiar de pagina
   onPageChange(page: number): void {
     this.currentPage = page;
     this.loadPokemons();

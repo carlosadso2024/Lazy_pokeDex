@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { Pokemon } from '../pokemon.interface';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Pokemon } from '../../features/home/components/pokemon-list/pokemon.interface';
 
 @Component({
   selector: 'app-card',
@@ -9,6 +9,8 @@ import { Pokemon } from '../pokemon.interface';
 })
 export class Card {
   @Input() pokemon: Pokemon | null = null;
+  @Input() isInPokedex: boolean = false;
+  @Output() addToPokedex = new EventEmitter<Pokemon>();
 
   getHp(): number {
     return this.pokemon?.stats.find(s => s.stat.name === 'hp')?.base_stat || 0;
@@ -28,5 +30,16 @@ export class Card {
 
   getMoves(): string[] {
     return this.pokemon?.moves.slice(0, 4).map(m => m.move.name) || [];
+  }
+
+  getPokemonNumber(): string {
+    return String(this.pokemon?.id || 0).padStart(3, '0')
+  }
+
+  onAddToPokedex(event: Event): void {
+    event.stopPropagation();
+    if(this.pokemon){
+      this.addToPokedex.emit(this.pokemon)
+    }
   }
 }
